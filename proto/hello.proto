@@ -1,0 +1,22 @@
+// Set the protocol buffer syntax version to 3.
+syntax = "proto3";
+
+// Set the package name to "hello".
+package hello;
+
+option go_package = "github.com/zzuun/grpc-go/proto";
+
+// Define the request message for the SayHello RPC method.
+message HelloRequest {
+  string name = 1; // A string field representing the name of the person to greet.
+}
+
+// Define the response message for the SayHello RPC method.
+message HelloResponse {
+  string message = 1; // A string field representing the greeting message.
+}
+
+// Define the HelloService, which contains the SayHello RPC method.
+service HelloService {
+  rpc SayHello (HelloRequest) returns (HelloResponse); // The SayHello method takes a HelloRequest and returns a HelloResponse.
+}
